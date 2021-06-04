@@ -1,0 +1,106 @@
+
+fieldset{
+	background-color:#ffffff!important;
+}
+
+.line{
+	float: left;
+	width: 100%;
+	padding-top: 10px;
+	margin-left:40px;
+	height: 70px;
+}
+
+	.line .columnLabel{
+		float:left;
+		width:22%;
+		margin-left:10px;
+	}
+			
+		.line .columnLabel .title label{
+			margin-top: 5px;
+			text-align:left;
+			color:#000000;
+			font-size: 12px;
+		}
+		
+		.line .columnLabel .description{
+			/*margin-top: 25px;*/
+			text-align:left;
+			width: 250px;
+		}
+		
+	.line .columnField{
+		float:left;
+		width:50%;
+		margin-left:10px;
+        margin-top: 7px;
+	}
+		.line .columnField .description{
+			margin-top: 0px;
+			text-align:left;
+			font-size:10px;
+		}
+
+
+
+.linkRede{
+	color:#ff9900!important;
+}
+input[type="text"].errorValidate{
+	background-color: #ffcccc;
+}
+.textBoxSmall{
+	width:115px;
+	background-color: #fff;
+}
+
+.textBox{
+	width:140px;
+}
+
+.boxSelect{
+	width:260px;
+}
+.errorValidate{
+	background-color: #ffcccc;
+}
+
+.textBoxLarge{
+	width:250px;
+	background-color: #fff;
+}
+
+.textGrey{
+	color: #808080;
+}
+
+.marginTop12{
+	margin-top:12px!important;
+}
+
+.button{
+  margin:5px 3px 0 3px;
+  padding:5px;
+  text-decoration: none;
+  text-align: center;
+  width:100px;
+  outline-style:none;
+  background-color:   #5A5655;
+  border: 1px solid #5A5655;
+  -moz-border-radius  : 5px; 
+  -webkit-border-radius: 5px;    
+}
+.errorMsgV6 {
+    color: red;
+    bottom: -16px;
+    width: 100%;
+    left: 1px;
+}
+
+.alert-success{
+    position: relative;
+    border: none;
+    padding-left: 50px;
+    border-left: solid 3px #92d097;
+}

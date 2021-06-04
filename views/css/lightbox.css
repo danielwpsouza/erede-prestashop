@@ -1,0 +1,301 @@
+.clear{
+	clear:both;
+}
+
+.popupV5{
+	z-index:10001;
+     position: absolute;
+     top: 0; bottom: 0;
+     right: 0; left: 0;
+     margin: auto;
+	 width: 780px;
+     height: 550px;
+     border: solid 1px #ccc;
+     background: #ffffff;
+     display: none;
+
+}
+
+.popupV6{
+	z-index:10001;
+     position: fixed;
+     top: 0; bottom: 0;
+     right: 0; left: 0;
+     margin: auto;
+	 width: 850px;
+     height: 550px;
+     border: solid 1px #ccc;
+     background: #ffffff;
+     /*display: none;*/
+
+}
+
+.popupV6.reverse-transaction-popup{
+	height: 300px;
+}
+
+.smallPopupV5{
+	z-index:10001;
+     position: absolute;
+     top: 0; bottom: 0;
+     right: 0; left: 0;
+     margin: auto;
+	 width: 780px;
+    height: 270px;
+     border: solid 1px #ccc;
+     background: #ffffff;
+     display: none;
+
+}
+
+.smallPopupV6{
+	z-index:10001;
+     position: absolute;
+     top: 0; bottom: 0;
+     right: 0; left: 0;
+     margin: auto;
+	 width: 780px;
+    height: 270px;
+     border: solid 1px #ccc;
+     background: #ffffff;
+     display: none;
+
+}
+
+
+#loading-div-background{
+	z-index:10000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	background:rgba(0, 0, 0, 0.5);
+}
+
+
+.light_header{
+    background-color: #f09e00;
+    /*height: 70px;*/
+    border-bottom-color: #efefef;
+    border-bottom-width: 7px;
+    border-bottom-style: solid;
+    padding: 4px;
+		margin: 0 30px
+}
+
+	.light_header img{
+		float: left;
+		margin: 5px 10px;
+	}
+
+	.light_header label{
+		color: #fff;
+		font-size: 21px;
+		font-weight: lighter;
+		float: left;
+		text-align: left;
+		margin: 10px 0;
+	}
+
+.light_line {
+    position: relative;
+    padding: 10px 85px;
+    /*height: 70px;*/
+}
+
+.dateColumn{
+    position: relative;
+    float: left;
+    margin: 15px 10%;
+		width:30%;
+		/*text-align: center;*/
+		/*margin:0 auto;*/
+
+}
+
+.dateColumn img{
+    height: 35px;
+		float:left;
+}
+
+.dateColumn .labels{
+	float:left;
+	width: 50%;
+	margin-left: 10px;
+}
+.dateColumn label{
+	padding:0;
+	text-align:left;
+}
+
+	.dateColumn .columnTitle {
+		color: #929292;
+		font-weight: lighter;
+		font-size: 15px;
+	}
+
+	.dateColumn .columnValue {
+		position: relative;
+		font-weight: lighter;
+		font-size: 24px;
+	}
+
+.totalColumn{
+    position: relative;
+    float: left;
+    margin: 15px 10%;
+		width:30%;
+		text-align: center;
+}
+.totalColumn img{
+    height: 25px;
+		float:left;
+}
+
+.totalColumn .labels{
+	float:left;
+	margin-left: 10px;
+	width:40%;
+}
+.totalColumn label{
+	padding-top: 0;
+	display: block;
+	text-align: left;
+}
+	.totalColumn .columnTitle {
+		color: #929292;
+		font-weight: lighter;
+		font-size: 15px;
+	}
+
+	.totalColumn .columnValue {
+		font-weight: lighter;
+		font-size: 24px;
+	}
+
+.titleGreyRev{
+    color: #c4c4c4;
+    font-size: 25px;
+    font-weight: lighter;
+    position: relative;
+    margin: 50px 0px 25px 120px;
+}
+
+.light_line .titleGreyCap {
+    color: #c4c4c4;
+    font-size: 25px;
+    font-weight: normal;
+		margin: 0 auto;
+		text-align: center;
+		width: 100%;
+}
+
+.light_column{
+    float: left;
+		width: 49%;
+}
+
+.light_column label{
+		color: #5C5C5C;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.light_column .order-info1{
+	padding: 10px 0;
+	text-align: left;
+	width: 80%;
+	margin-right:20%;
+}
+.light_column .order-info2{
+	padding: 10px 0;
+	width: 80%;
+	margin-left:20%;
+}
+.light_column .order-info2 label{
+	text-align: left;
+	padding: 0;
+}
+.light_column .order-info1 label{
+	text-align: left;
+	padding: 0;
+}
+
+.central_column{
+    width: 60%;
+    padding: 0 0 0 30%;
+}
+.capture-value-labels label{
+		width: 100%;
+		text-align: left;
+}
+.central_column label{
+	padding: 0;
+	margin: 0 auto;
+  color: #5C5C5C;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.light_button{
+    position: relative;
+    padding: 20px;
+    bottom: -20px;
+}
+
+.light_button .buttonOrange{
+	background-color: #f1ab24;
+    border: none;
+    height: 30px;
+    font-weight: bolder;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0px 15px;
+    margin: 0px 5px;
+}
+
+.light_button .buttonGrey{
+    background-color: #e1e1e1;
+    border: none;
+    font-weight: bolder;
+    color: #777;
+    border-radius: 6px;
+    padding: 8px 30px;
+    margin: 0px 5px;
+}
+
+.separatorH{
+    width: 80%;
+    background-color: #484848;
+    height: 1px;
+    margin: 0px 10%;
+}
+
+.separatorV{
+    height: 105px;
+    background-color: #484848;
+    width: 1px;
+    position: relative;
+    float: left;
+    margin-top: 12px;
+}
+
+.green{
+    color: #93cb69;
+}
+
+.purple{
+    color: #a263a5;
+}
+
+.capture-transaction, .reverse-transaction, .query-transaction{
+	cursor: pointer;
+}
+
+.log_button{
+		bottom:0;
+		text-align: center;
+		padding: 0;
+}

@@ -1,0 +1,158 @@
+
+
+div {
+    display: block;
+}
+
+body {
+    font: 400 12px/1.42857 "Open Sans",Helvetica,Arial,sans-serif;
+    color: #555;
+    background-color: #EFF1F2;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.panel{
+    position: relative;
+    margin-left: 15px!important;
+    background-color: #fff!important;
+    width: auto!important;
+}
+
+.panel .panel-heading{
+    font-family: "Ubuntu Condensed",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #555;
+    height: 32px;
+    border: none;
+    font-size: 1.2em;
+    line-height: 2.2em;
+    height: 2.2em;
+    text-transform: uppercase;
+    border-bottom: solid 1px #eee;
+    padding: 0 0 0 5px;
+    margin: -10px -16px 15px -5px;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.table thead>tr>th {
+    border: none;
+    font-weight: normal;
+    vertical-align: top;
+    border-bottom: solid 1px #cccccc;
+    /*padding: 8px 4px 8px 6px;*/
+}
+
+ .table tr td {
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    font-size: 12px;
+    padding: 8px 4px 8px 6px!important;
+}
+
+	tr.odd {
+		background-color: #f7f7f7;
+	}
+
+	tr.even {
+		background-color: #fff;
+	}
+
+
+.text-center {
+    text-align: center;
+}
+
+.w40px{
+	width: 40px;
+}
+
+.w60px{
+  width:60px;
+}
+
+.w80px{
+	width: 80px;
+}
+
+.nobootstrap {
+    background-color: initial!important;
+    min-width: auto!important;
+    padding: 100px 0px;
+}
+
+
+.label {
+    display: inline;
+    font-size: 12px;
+    font-weight: 400!important;
+    padding: 0.15em 0.4em;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+a.btn-default {
+    color: #363A41!important;
+    background-color: #fff;
+    border-color: #a0a0a0;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin: 0px 8px;
+}
+
+.log-transaction{
+    z-index: 1000;
+    position: fixed;
+    top: 65px;
+    right: 60px;
+    border: none;
+    background-color: #fff;
+}
+.log-transaction img{
+    position: relative;
+    width: 25px;
+}
+
+.orders-rede{
+    z-index: 1000;
+    position: fixed;
+    top: 65px;
+    right: 60px;
+    border: none;
+    background-color: #fff;
+}
+.orders-rede img{
+    position: relative;
+    width: 25px;
+}
+
+
+.largePanel {
+	width:1240px!important;
+}
+
+.tableHidden {
+	display:none;
+}
+
+#form-order-rede span>a {
+    color: #00aff0!important;
+}
+
+#form-order-rede span>a.active {
+    color: #000!important;
+}
