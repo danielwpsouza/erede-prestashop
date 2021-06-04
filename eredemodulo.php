@@ -158,7 +158,7 @@ class eredemodulo extends PaymentModule
 	public function hookPaymentReturn($params)
 	{
 	    /**
-	    * http://lojabibelo.com.br/confirmacao-de-pedido?id_cart=23&id_module=97&id_order=9&key=4e13415837e16e88eb1b32a19bab8cb9
+	    * http://sualoja.com.br/confirmacao-de-pedido?id_cart=23&id_module=97&id_order=9&key=4e13415837e16e88eb1b32a19bab8cb9
 	    */
 		if (!$this->active)
 			return;
@@ -376,29 +376,29 @@ class eredemodulo extends PaymentModule
 						)";
 		return $db_instance->execute($sql);
 	}
-	
+
 	public function hookPaymentOptions($params){
-	    
+
 	    $payments_options = array(
-	          
+
 	   );
-	    
+
 	    $payment_option = new PaymentOption();
 	    $action_text = "eRede";
         //$payment_option->setLogo(Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/views/img/logo.png'));
         $payment_option->setCallToActionText($action_text);
         $payment_option->setModuleName("eRede");
-        /** http://lojabibelo.com.br/compra?step=3&fc=module&module=eredemodulo&controller=payment&credit_card=1 */
+        /** http://sualoja.com.br/compra?step=3&fc=module&module=eredemodulo&controller=payment&credit_card=1 */
         $payment_option->setAction($this->context->link->getModuleLink($this->name, 'payment', array('credit_card' => '1'), true));
         $payment_option->setForm($this->generateForm());
         $payment_option->setAdditionalInformation($this->generateInfo());
         //$payment_option->setAdditionalInformation($this->context->smarty->fetch(_PS_MODULE_DIR_ . $this->name . '/views/templates/hook/payment.tpl'));
         $payments_options[] = $payment_option;
-	    
+
 	    return $payments_options;
-	    
+
 	}
-	
+
 	public function generateInfo(){
 	    try {
 	        $this->context->controller->addCss($this->_path.'views/css/payment.css', 'all');
@@ -411,14 +411,14 @@ class eredemodulo extends PaymentModule
     		);
             //return $this->context->smarty->fetch('module:eredemodulo/views/templates/hook/payment.tpl');
             return $this->display(__FILE__, 'views/templates/hook/payment.tpl');
-           
-           
+
+
         } catch (Exception $e) {
             echo 'Exceção capturada: ',  $e->getMessage(), "\n";
         }
-        
+
     }
-	
+
 	public function generateForm(){
 	    try {
 	        $this->context->controller->addCss($this->_path.'views/css/payment.css', 'all');
@@ -431,11 +431,11 @@ class eredemodulo extends PaymentModule
     		);
             //return $this->context->smarty->fetch('module:eredemodulo/views/templates/hook/payment.tpl');
             return $this->display(__FILE__, 'module:eredemodulo/views/templates/hook/payment.tpl');
-           
+
         } catch (Exception $e) {
             echo 'Exceção capturada: ',  $e->getMessage(), "\n";
         }
-        
+
     }
-    
+
 }
