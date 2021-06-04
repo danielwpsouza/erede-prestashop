@@ -41,6 +41,7 @@ class ERedeModuloPaymentModuleFrontController extends ModuleFrontController
 		}
 
 		$this->context->smarty->assign(array(
+		  //  'tpl_dir' => 'module:eredemodulo/views/templates/front/',
 			'nbProducts' => $cart->nbProducts(),
 			'cust_currency' => $cart->id_currency,
 			'total' => $totalOrder,
@@ -56,6 +57,15 @@ class ERedeModuloPaymentModuleFrontController extends ModuleFrontController
 			.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8').__PS_BASE_URI__
 		));
 		
-		$this->setTemplate('payment_execution.tpl');
+		try {
+    	    /**Funciona*/
+    		$this->setTemplate('module:eredemodulo/views/templates/front/payment_execution.tpl');
+           
+            //	$this->setTemplate(_PS_MODULE_DIR_.'eredemodulo/templates/front/payment_execution.tpl');
+            // $this->setTemplate('payment_execution');
+            
+		} catch (Exception $e) {
+            echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+        }
 	}
 }

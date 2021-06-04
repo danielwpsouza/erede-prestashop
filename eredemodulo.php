@@ -6,6 +6,8 @@ if (!defined('_PS_VERSION_'))
 require_once(dirname(__FILE__).'/adqr/log.php');
 require_once(dirname(__FILE__).'/adqr/Classloader.php');
 
+use PrestaShop\PrestaShop\Core\Payment\PaymentOption;
+
 class eredemodulo extends PaymentModule
 {
 	private $_html = '';
@@ -45,6 +47,7 @@ class eredemodulo extends PaymentModule
 				|| !Configuration::updateValue('EREDE_MIN_VALUE_FOR_INSTALLMENT', '')
 				|| !Configuration::updateValue('EREDE_MIN_INSTALLMENT_VALUE', '')
 				|| !Configuration::updateValue('EREDE_SOFT_DESCRIPTOR', '')
+				|| !$this->registerHook('paymentOptions')
 				|| !$this->registerHook('payment')
 				|| !$this->registerHook('paymentReturn')
 				|| !$this->registerHook('actionOrderHistoryAddAfter')
@@ -149,31 +152,34 @@ class eredemodulo extends PaymentModule
 			'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ? 'https://' : 'http://')
 			.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8').__PS_BASE_URI__
 		));
-		return $this->display(__FILE__, 'payment.tpl');
+		return $this->context->smarty->fetch(__FILE__, 'payment.tpl');
 	}
 
 	public function hookPaymentReturn($params)
 	{
+	    /**
+	    * http://lojabibelo.com.br/confirmacao-de-pedido?id_cart=23&id_module=97&id_order=9&key=4e13415837e16e88eb1b32a19bab8cb9
+	    */
 		if (!$this->active)
 			return;
 
 		global $cookie;
 		$id_lang = $cookie->id_lang;
 
-		$state = $params['objOrder']->getCurrentState();
+		$state = $params['order']->getCurrentState();
 
 		if ($state == Configuration::get('EREDE_STATUS_0') || $state == Configuration::get('EREDE_STATUS_1'))
 		{
 			$this->smarty->assign(array(
 				'total_to_pay' => Tools::displayPrice($params['total_to_pay'], $params['currencyObj'], false),
 				'status' => 'ok',
-				'id_order' => $params['objOrder']->id
+				'id_order' => $params['order']->id
 			));
 
-			$objOrder =  $params['objOrder'];
+			$objOrder =  $params['order'];
 
-			if (isset($params['objOrder']->reference) && !empty($params['objOrder']->reference))
-				$this->smarty->assign('reference', $params['objOrder']->reference);
+			if (isset($params['order']->reference) && !empty($params['order']->reference))
+				$this->smarty->assign('reference', $params['order']->reference);
 
 			$this->smarty->assign('status_desc', $this->getStatusName($state, $id_lang));
 		}else if ($state == Configuration::get('PS_OS_CANCELED')){
@@ -182,7 +188,7 @@ class eredemodulo extends PaymentModule
 		}else
 			$this->smarty->assign('status', 'failed');
 
-		return $this->display(__FILE__, 'payment_return.tpl');
+		$this->context->smarty->fetch(__FILE__, 'payment_return.tpl');
 	}
 
 	private function installModuleTab($tabClass = null, $tabName = null)//, $idTabParent = 0)
@@ -346,7 +352,8 @@ class eredemodulo extends PaymentModule
 			else
 				$version = 4;
 
-			return $version;
+ 			// return $version;
+            return 7;
 		}
 
 
@@ -369,4 +376,66 @@ class eredemodulo extends PaymentModule
 						)";
 		return $db_instance->execute($sql);
 	}
+	
+	public function hookPaymentOptions($params){
+	    
+	    $payments_options = array(
+	          
+	   );
+	    
+	    $payment_option = new PaymentOption();
+	    $action_text = "eRede";
+        //$payment_option->setLogo(Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/views/img/logo.png'));
+        $payment_option->setCallToActionText($action_text);
+        $payment_option->setModuleName("eRede");
+        /** http://lojabibelo.com.br/compra?step=3&fc=module&module=eredemodulo&controller=payment&credit_card=1 */
+        $payment_option->setAction($this->context->link->getModuleLink($this->name, 'payment', array('credit_card' => '1'), true));
+        $payment_option->setForm($this->generateForm());
+        $payment_option->setAdditionalInformation($this->generateInfo());
+        //$payment_option->setAdditionalInformation($this->context->smarty->fetch(_PS_MODULE_DIR_ . $this->name . '/views/templates/hook/payment.tpl'));
+        $payments_options[] = $payment_option;
+	    
+	    return $payments_options;
+	    
+	}
+	
+	public function generateInfo(){
+	    try {
+	        $this->context->controller->addCss($this->_path.'views/css/payment.css', 'all');
+    		$this->smarty->assign(
+    		    array(
+        			'version' => 6,
+        			'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ? 'https://' : 'http://')
+        			.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8').__PS_BASE_URI__
+    		    )
+    		);
+            //return $this->context->smarty->fetch('module:eredemodulo/views/templates/hook/payment.tpl');
+            return $this->display(__FILE__, 'views/templates/hook/payment.tpl');
+           
+           
+        } catch (Exception $e) {
+            echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+        }
+        
+    }
+	
+	public function generateForm(){
+	    try {
+	        $this->context->controller->addCss($this->_path.'views/css/payment.css', 'all');
+    		$this->smarty->assign(
+    		    array(
+        			'version' => 6,
+        			'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ? 'https://' : 'http://')
+        			.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8').__PS_BASE_URI__
+    		    )
+    		);
+            //return $this->context->smarty->fetch('module:eredemodulo/views/templates/hook/payment.tpl');
+            return $this->display(__FILE__, 'module:eredemodulo/views/templates/hook/payment.tpl');
+           
+        } catch (Exception $e) {
+            echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+        }
+        
+    }
+    
 }

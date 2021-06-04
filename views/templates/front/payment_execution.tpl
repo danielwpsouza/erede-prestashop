@@ -1,3 +1,5 @@
+{extends "$layout"}
+{block name="content"}
 {capture name=path}{l s='Pagamento por e.Rede' mod='eredemodulo'}{/capture}
 {if $version == 5}
 {include file="$tpl_dir./breadcrumb.tpl"}
@@ -5,7 +7,7 @@
 <h2>{l s='Dados do Pagamento' mod='eredemodulo'}</h2>
 
 {assign var='current_step' value='payment'}
-{include file="$tpl_dir./order-steps.tpl"}
+
 
 {if $nbProducts <= 0}
 	<p class="warning">{l s='Seu carrinho está vazio.' mod='eredemodulo'}</p>
@@ -618,3 +620,5 @@
 		}, 500);
 	}
 </script>
+
+{/block}

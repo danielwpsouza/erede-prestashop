@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-	<name>eredemodulo</name>
-	<displayName><![CDATA[e.Rede]]></displayName>
-	<version><![CDATA[1.0.0]]></version>
-	<description><![CDATA[Aceite pagamentos via cart&atilde;o de cr&eacute;dito utilizando o e.Rede]]></description>
-	<author><![CDATA[Rede]]></author>
-	<tab><![CDATA[payments_gateways]]></tab>
+    <name>eredemodulo</name>
+    <displayName><![CDATA[e.Rede]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[Aceite pagamentos via cart&atilde;o de cr&eacute;dito utilizando o e.Rede]]></description>
+    <author><![CDATA[Rede]]></author>
+    <tab><![CDATA[payments_gateways]]></tab>
 	<confirmUninstall><![CDATA[Tem certeza que deseja desinstalar o eRede?]]></confirmUninstall>
-	<is_configurable>1</is_configurable>
-	<need_instance>0</need_instance>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
 	<limited_countries></limited_countries>
 </module>

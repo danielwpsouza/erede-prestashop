@@ -1,4 +1,4 @@
-﻿{if $version == 6}
+﻿{if $version == 7}
 <div class="row eredemodulo">
 	<div class="col-xs-12">
 {/if}
@@ -7,11 +7,11 @@
 				<img src="{$this_path_ssl|escape:'htmlall'}modules/eredemodulo/views/img/logo.png" alt="{l s='e.Rede' mod='eredemodulo'}" height="30"/>
 				{l s='Pagar com e.Rede' mod='eredemodulo'}&nbsp;<span>{l s='(cartão de crédito)' mod='eredemodulo'}</span>
 			</a>
-			{if $version == 6}
+			{if $version == 7}
 			<span class="eredemodulo" />
 			{/if}
 		</p>
-{if $version == 6}
+{if $version == 7}
 	</div>
 </div>
 {/if}
